@@ -1,0 +1,24 @@
+C:\Users\001405200\Desktop\Lab1\Lab1\bin\Debug\Lab1.exe.config
+C:\Users\001405200\Desktop\Lab1\Lab1\bin\Debug\Lab1.exe
+C:\Users\001405200\Desktop\Lab1\Lab1\bin\Debug\Lab1.pdb
+C:\Users\001405200\Desktop\Lab1\Lab1\obj\Debug\Lab1.csprojResolveAssemblyReference.cache
+C:\Users\001405200\Desktop\Lab1\Lab1\obj\Debug\Lab1.Form1.resources
+C:\Users\001405200\Desktop\Lab1\Lab1\obj\Debug\Lab1.Properties.Resources.resources
+C:\Users\001405200\Desktop\Lab1\Lab1\obj\Debug\Lab1.csproj.GenerateResource.Cache
+C:\Users\001405200\Desktop\Lab1\Lab1\obj\Debug\Lab1.exe
+C:\Users\001405200\Desktop\Lab1\Lab1\obj\Debug\Lab1.pdb
+F:\School Work\SE426 - Web Services\Assignments\Lab1\Lab1\bin\Debug\Lab1.exe.config
+F:\School Work\SE426 - Web Services\Assignments\Lab1\Lab1\obj\Debug\Lab1.exe
+F:\School Work\SE426 - Web Services\Assignments\Lab1\Lab1\obj\Debug\Lab1.pdb
+C:\Users\naricci\Desktop\Lab1\Lab1\bin\Debug\Lab1.exe.config
+C:\Users\naricci\Desktop\Lab1\Lab1\obj\Debug\Lab1.exe
+C:\Users\naricci\Desktop\Lab1\Lab1\obj\Debug\Lab1.pdb
+C:\Users\naricci\Desktop\Lab1\Lab1\bin\Debug\Lab1.exe
+C:\Users\naricci\Desktop\Lab1\Lab1\bin\Debug\Lab1.pdb
+C:\Users\naricci\Desktop\Lab1\Lab1\obj\Debug\Lab1.csprojResolveAssemblyReference.cache
+C:\Users\naricci\Desktop\Lab1\Lab1\obj\Debug\Lab1.Form1.resources
+C:\Users\naricci\Desktop\Lab1\Lab1\obj\Debug\Lab1.Properties.Resources.resources
+C:\Users\naricci\Desktop\Lab1\Lab1\obj\Debug\Lab1.csproj.GenerateResource.Cache
+E:\School Work\SE426 - Web Services\Assignments\Lab1\Lab1\bin\Debug\Lab1.exe.config
+E:\School Work\SE426 - Web Services\Assignments\Lab1\Lab1\obj\Debug\Lab1.exe
+E:\School Work\SE426 - Web Services\Assignments\Lab1\Lab1\obj\Debug\Lab1.pdb

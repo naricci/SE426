@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SalesInvoices>
+	<Invoice retail-customer="Y">
+		<BillingInformation>
+			<Name>John Doe</Name>
+			<Address>58 Main Street</Address>
+			<City>East Greenwich</City>
+			<State>RI</State>
+			<Zip>02818</Zip>
+		</BillingInformation>
+		<ShippingInformation>
+			<Name>John Doe</Name>
+			<Address>58 Main Street</Address>
+			<City>East Greenwich</City>
+			<State>RI</State>
+			<Zip>02818</Zip>
+		</ShippingInformation>
+		<Date>10/03/2017</Date>
+		<Items>
+			<Item>
+				<SKU>KW8CWJ2</SKU>
+				<Description>Liter of Jack Daniels</Description>
+				<Quantity>7</Quantity>
+				<UnitPrice>$22.99</UnitPrice>
+				<Comments></Comments>
+			</Item>
+		</Items>
+	</Invoice>
+	
+	<Invoice retail-customer="N">
+		<BillingInformation>
+			<Name>Jane Doe</Name>
+			<Address>510 King Street</Address>
+			<City>Warwick</City>
+			<State>RI</State>
+			<Zip>02886</Zip>
+		</BillingInformation>
+		<ShippingInformation>
+			<Name>John Doe</Name>
+			<Address>510 King Street</Address>
+			<City>Warwick</City>
+			<State>RI</State>
+			<Zip>02886</Zip>
+		</ShippingInformation>
+		<Date>10/01/2017</Date>
+		<Items>
+			<Item>
+				<SKU>7SYF9FSD9</SKU>
+				<Description>Liter of Captain Morgan</Description>
+				<Quantity>16</Quantity>
+				<UnitPrice>$24.99</UnitPrice>
+				<Comments></Comments>
+			</Item>
+			<Item>
+				<SKU>7SYF9FFRG</SKU>
+				<Description>Liter of Evan Williams</Description>
+				<Quantity>8</Quantity>
+				<UnitPrice>$17.99</UnitPrice>
+				<Comments></Comments>
+			</Item>
+			<Item>
+				<SKU>7SYF9FK38</SKU>
+				<Description>Liter of Jameson</Description>
+				<Quantity>12</Quantity>
+				<UnitPrice>$29.99</UnitPrice>
+				<Comments></Comments>
+			</Item>
+		</Items>
+	</Invoice>
+</SalesInvoices>

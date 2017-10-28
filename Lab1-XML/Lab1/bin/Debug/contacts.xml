@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContactManager>
+	<LatestVersionDate>10/03/2017</LatestVersionDate>
+	<CurrentVersion>1.0</CurrentVersion>
+	<Contact sex="M">
+		<FirstName>Nick</FirstName>
+		<LastName>Ricci</LastName>
+		<PhoneNumber>4016993928</PhoneNumber>
+		<FaxNumber>4016993929</FaxNumber>
+		<EmailAddress>nicholasaricci@gmail.com</EmailAddress>
+	</Contact>
+	<Contact sex="F">
+		<FirstName>Merissa</FirstName>
+		<LastName>Ricci</LastName>
+		<PhoneNumber>4014977915</PhoneNumber>
+		<FaxNumber>4014977916</FaxNumber>
+		<EmailAddress>merissaaricci@gmail.com</EmailAddress>
+	</Contact>
+	<Contact sex="M">
+		<FirstName>Dennis</FirstName>
+		<LastName>Ricci</LastName>
+		<PhoneNumber>4014977853</PhoneNumber>
+		<FaxNumber>4014977854</FaxNumber>
+		<EmailAddress>dennisaricci@gmail.com</EmailAddress>
+	</Contact>
+	<Contact sex="F">
+		<FirstName>Rosemarie</FirstName>
+		<LastName>Ricci</LastName>
+		<PhoneNumber>4014977902</PhoneNumber>
+		<FaxNumber>4014977903</FaxNumber>
+		<EmailAddress>rosemarieericci@gmail.com</EmailAddress>
+	</Contact>
+	<Contact sex="M">
+		<FirstName>Hunter</FirstName>
+		<LastName>Ricci</LastName>
+		<PhoneNumber>4016993900</PhoneNumber>
+		<FaxNumber>4016993901</FaxNumber>
+		<EmailAddress>hunterricci@gmail.com</EmailAddress>
+	</Contact>
+</ContactManager>
