@@ -26,7 +26,7 @@
     
     </div>
         <p>
-            <asp:TextBox ID="txtOutput" runat="server" Height="534px" TextMode="MultiLine" Width="1138px"></asp:TextBox>
+            <asp:TextBox ID="txtOutput" runat="server" Height="325px" TextMode="MultiLine" Width="749px"></asp:TextBox>
         </p>
         <p>
             &nbsp;</p>
