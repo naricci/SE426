@@ -7,3 +7,6 @@ C:\Users\nicho\Documents\GitHub\SE426-Labs\Lab2-XPath\Lab2-XPath\obj\Debug\Lab2_
 C:\Users\nicho\Documents\GitHub\SE426-Labs\Lab2-XPath\Lab2-XPath\obj\Debug\Lab2-XPath.csproj.GenerateResource.Cache
 C:\Users\nicho\Documents\GitHub\SE426-Labs\Lab2-XPath\Lab2-XPath\obj\Debug\Lab2-XPath.exe
 C:\Users\nicho\Documents\GitHub\SE426-Labs\Lab2-XPath\Lab2-XPath\obj\Debug\Lab2-XPath.pdb
+C:\Users\001405200\Desktop\SE426\Lab2-XPath\Lab2-XPath\bin\Debug\Lab2-XPath.exe.config
+C:\Users\001405200\Desktop\SE426\Lab2-XPath\Lab2-XPath\obj\Debug\Lab2-XPath.exe
+C:\Users\001405200\Desktop\SE426\Lab2-XPath\Lab2-XPath\obj\Debug\Lab2-XPath.pdb

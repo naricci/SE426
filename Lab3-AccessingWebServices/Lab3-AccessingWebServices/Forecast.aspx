@@ -34,12 +34,12 @@
             <asp:TextBox ID="txtZipCode" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Button ID="btnGetCitiesForZip" runat="server" Text="Get Cities For Zip" />
+            <asp:Button ID="btnGetCitiesForZip" runat="server" OnClick="btnGetCitiesForZip_Click" Text="Get Cities For Zip" />
 &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnGetCitiesNearZip" runat="server" Text="Get Cities Nearby Zip" />
+            <asp:Button ID="btnGetCitiesNearZip" runat="server" OnClick="btnGetCitiesNearZip_Click" Text="Get Cities Nearby Zip" />
         </p>
         <p>
-            <asp:TextBox ID="TextBox1" runat="server" Height="314px" TextMode="MultiLine" Width="500px"></asp:TextBox>
+            <asp:TextBox ID="txtCityResults" runat="server" Height="314px" TextMode="MultiLine" Width="500px"></asp:TextBox>
         </p>
     </form>
 </body>
