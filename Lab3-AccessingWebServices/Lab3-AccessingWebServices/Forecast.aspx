@@ -16,20 +16,31 @@
         <asp:Label ID="lblPart1" runat="server" Text="Part 1:"></asp:Label>
         <br />
         <br />
-        <asp:Label ID="lblDate" runat="server" Text="Date:  "></asp:Label>
-        <br />
-        <asp:Label ID="lblForecastDesc" runat="server" Text="Forecast:  "></asp:Label>
-        <br />
-        <br />
         Get Weather Forecast For Boston<br />
-        <asp:Button ID="btnGetForecast" runat="server" Text="Get Forecast" />
+        <asp:Button ID="btnGetForecast" runat="server" Text="Get Forecast" OnClick="btnGetForecast_Click" />
     
     </div>
         <p>
-            <asp:TextBox ID="txtOutput" runat="server" Height="534px" TextMode="MultiLine" Width="1138px"></asp:TextBox>
+            <asp:TextBox ID="txtWeatherOutput" runat="server" Height="358px" TextMode="MultiLine" Width="942px"></asp:TextBox>
         </p>
         <p>
             &nbsp;</p>
+        <p>
+        <asp:Label ID="lblPart2" runat="server" Text="Part 2:"></asp:Label>
+        </p>
+        <p>
+            <asp:Label ID="lblZipCode" runat="server" Text="Enter Zip Code:"></asp:Label>
+&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtZipCode" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Button ID="btnGetCitiesForZip" runat="server" Text="Get Cities For Zip" />
+&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnGetCitiesNearZip" runat="server" Text="Get Cities Nearby Zip" />
+        </p>
+        <p>
+            <asp:TextBox ID="TextBox1" runat="server" Height="314px" TextMode="MultiLine" Width="500px"></asp:TextBox>
+        </p>
     </form>
 </body>
 </html>
