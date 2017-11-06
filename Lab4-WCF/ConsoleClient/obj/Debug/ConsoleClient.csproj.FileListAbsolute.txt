@@ -1,0 +1,6 @@
+C:\Users\nicho\Documents\GitHub\SE426\Lab4\ConsoleClient\bin\Debug\ConsoleClient.exe.config
+C:\Users\nicho\Documents\GitHub\SE426\Lab4\ConsoleClient\bin\Debug\ConsoleClient.exe
+C:\Users\nicho\Documents\GitHub\SE426\Lab4\ConsoleClient\bin\Debug\ConsoleClient.pdb
+C:\Users\nicho\Documents\GitHub\SE426\Lab4\ConsoleClient\obj\Debug\ConsoleClient.exe
+C:\Users\nicho\Documents\GitHub\SE426\Lab4\ConsoleClient\obj\Debug\ConsoleClient.pdb
+C:\Users\nicho\Documents\GitHub\SE426\Lab4\ConsoleClient\obj\Debug\ConsoleClient.csprojResolveAssemblyReference.cache
