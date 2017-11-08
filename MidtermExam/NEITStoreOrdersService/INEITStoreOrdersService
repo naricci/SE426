@@ -6,11 +6,11 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 
-namespace NEITStoreOrderService
+namespace NEITStoreOrdersService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface INEITStoreOrderService
+    public interface INEITStoreOrdersService
     {
 
         [OperationContract]
@@ -20,11 +20,6 @@ namespace NEITStoreOrderService
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
-        [OperationContract]
-        int ReturnDoubleOrderID(int OrderID);
-
-        [OperationContract]
-        OrderInfo GetOrder(string OrderID);
     }
 
 
@@ -48,24 +43,5 @@ namespace NEITStoreOrderService
             get { return stringValue; }
             set { stringValue = value; }
         }
-    }
-
-    [DataContract]
-    public class OrderInfo
-    {
-        [DataMember]
-        public string Options;
-        [DataMember]
-        public double Cost;
-        [DataMember]
-        public string Name;
-        [DataMember]
-        public string Sku;
-        [DataMember]
-        public int OrderID;
-        [DataMember]
-        public string ShopperAddress;
-        [DataMember]
-        public string ShopperName;
     }
 }
