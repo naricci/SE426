@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  <title>Problem 1</title>
+
+    <script type="text/javascript">
+
+    function getZip() {
+
+      var postalCode = document.getElementById('postalCode').value;
+
+      var url = "http://api.geonames.org/postalCodeSearchJSON?postalcode="+postalCode+"&maxRows=10&username=naricci";
+
+      // Cross platform xmlhttprequest
+
+      // Create xmlhttprequest object
+      var xmlhttp = null;
+      if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+        //make sure that Browser supports overrideMimeType
+        if (typeof xmlhttp.overrideMimeType != 'undefined') { xmlhttp.overrideMimeType('text/xml'); }
+      } else if (window.ActiveXObject) {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      } else {
+        alert('Perhaps your browser does not support xmlhttprequests?');
+      }
+
+      // Create an HTTP GET request
+      xmlhttp.open('GET', url, true);
+
+      // Set the callback function
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+          var myObj = JSON.parse(xmlhttp.responseText);
+
+          document.write('<ul>');
+					var i;
+          for (i = 0; i < myObj.postalCodes.length; i++) {
+            document.write('<li>');
+            document.write(myObj.postalCodes[i].postalCode);
+            document.write(' - ');
+            document.write(myObj.postalCodes[i].placeName);
+            document.write('</li><br>');
+          }
+          document.write('</ul>');
+					document.close();
+        } else {
+          // waiting for the call to complete
+        }
+      };
+
+      // Make the actual request
+      xmlhttp.send(null);
+      // return myObj;
+    };
+  </script>
+
+</head>
+
+<body>
+
+  <form id="myForm">
+    <label>Postal Code: </label>
+    <input type="text" id="postalCode">
+    <br>
+    <input type="button" value="Submit" onclick="getZip()">
+  </form>
+
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Problem 2</title>
+    
+    <script type="text/javascript">
+
+    function getTopStories() {
+  
+      var url = "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=8ddbb4b1026d49fc940ef3806e455ede";
+			
+  
+      // Cross platform xmlhttprequest
+  
+      // Create xmlhttprequest object
+      var xmlhttp = null;
+      if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+        //make sure that Browser supports overrideMimeType
+        if (typeof xmlhttp.overrideMimeType != 'undefined') { xmlhttp.overrideMimeType('text/xml'); }
+      } else if (window.ActiveXObject) {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      } else {
+        alert('Perhaps your browser does not support xmlhttprequests?');
+      }
+  
+      // Create an HTTP GET request
+      xmlhttp.open('GET', url, true);
+  
+      // Set the callback function
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					
+          var myObj = JSON.parse(xmlhttp.responseText);
+          
+          document.write('<ul>');
+					var i;
+          for (i = 0; i < myObj.results.length; i++) {
+            document.write('<li>');
+            document.write(myObj.results[i].title);
+            document.write(' - ');
+            document.write(myObj.results[i].byline);
+						document.write(' - ');
+						document.write('<a href=' + myObj.results[i].url + '>Link</a>');
+            document.write('</li><br>');
+          }
+          document.write('</ul>');
+					document.close();
+        } else {
+          // waiting for the call to complete
+        }
+      };
+  
+      // Make the actual request
+      xmlhttp.send(null);
+      // return myObj;
+    };
+  </script>
+
+</head>
+
+<body>
+
+  <form id="myForm">
+    <input type="button" value="Get Top Stories" onclick="getTopStories()">
+  </form>
+
+  
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Movie Search</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous">
+    
+    <script type="text/javascript">
+
+    function getMovieByTitle() {
+      var title = document.getElementById('t').value;
+      var year = document.getElementById('y').value;
+      var plot = document.getElementById('p').value;
+      var url = "http://www.omdbapi.com/?apikey=b8d053d0&t=" + title + "&y=" + year + "&plot=" + plot;
+
+      // Cross platform xmlhttprequest
+
+      // Create xmlhttprequest object
+      var xmlhttp = null;
+      if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+        //make sure that Browser supports overrideMimeType
+        if (typeof xmlhttp.overrideMimeType != 'undefined') {
+          xmlhttp.overrideMimeType('text/xml');
+        }
+      } else if (window.ActiveXObject) {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      } else {
+        alert('Perhaps your browser does not support xmlhttprequests?');
+      }
+
+      // Create an HTTP GET request
+      xmlhttp.open('GET', url, true);
+
+      // Set the callback function
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+          var myObj = JSON.parse(xmlhttp.responseText);
+
+          // Display Search Results
+          resultsForm.txtTitle.value = myObj.Title;
+          resultsForm.txtYear.value = myObj.Year;
+          resultsForm.txtRating.value = myObj.Rated;
+          resultsForm.txtReleaseDate.value = myObj.Released;
+          resultsForm.txtRuntime.value = myObj.Runtime;
+          resultsForm.txtGenre.value = myObj.Genre;
+          resultsForm.txtDirector.value = myObj.Director;
+          resultsForm.txtActors.value = myObj.Actors;
+          resultsForm.txtPlot.value = myObj.Plot;
+          resultsForm.txtLanguage.value = myObj.Language;
+          resultsForm.txtCountry.value = myObj.Country;
+          resultsForm.txtProduction.value = myObj.Production;
+          resultsForm.txtBoxOffice.value = myObj.BoxOffice;
+          resultsForm.txtWebsite.value = myObj.Website;
+          resultsForm.imgPoster.src = myObj.Poster;
+
+        } else {
+          // waiting for the call to complete
+        }
+      };
+
+      // Make the actual request
+      xmlhttp.send(null);
+    };
+    </script>
+
+  </head>
+
+  <body style="background-color: rgb(248, 248, 248);">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">SE426 Final Project</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="final.html">Part 1
+            <span class="sr-only">(current)</span>
+          </a>
+          <a class="nav-item nav-link" href="final-p2.html">Part 2</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="container">
+      <br>
+      <h1>Movie Search - OMDb API<small><a href="http://omdbapi.com"> omdbapi.com</a></small></h1>
+      <hr>
+
+      <!-- Search Area -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="bs-component">
+            <form class="well form-search" id="search-by-title-form">
+              
+              <fieldset>
+                <legend>By Title</legend>
+              </fieldset>
+              
+              <div>
+                
+                <label class="control-label" for="t">Title:</label>
+                <input type="text" id="t" name="t" placeholder="Enter movie title..." required> &nbsp;&nbsp;
+                
+                <label class="control-label" for="y">Year:</label>
+                <input type="text" id="y" name="y" style="width: 100px;"> &nbsp;&nbsp;
+                
+                <label class="control-label">Plot:</label>
+                <select id="p" name="plot" style="width: 100px;">
+                  <option value="" selected="">Short</option>
+                  <option value="full">Full</option>
+                </select>&nbsp;&nbsp;
+
+                <button id="search-by-title-button" type="button" class="btn btn-primary" onclick="getMovieByTitle()">Search</button>&nbsp;&nbsp;
+                <button id="search-by-title-reset" type="reset" class="btn btn-warning">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <br>
+
+      <!-- Search Results Area --> 
+      <div class="row">
+        <div class="col-lg-12">
+          <form name="resultsForm">
+            <fieldset>
+              <legend>Search Results</legend>
+            </fieldset>
+
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="txtTitle">Title:</label>
+                <input id="txtTitle" name="txtTitle" class="form-control">
+              </div>
+              <div class="col">
+                <label class="control-label" for="txtYear">Year:</label>
+                <input id="txtYear" name="txtYear" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="txtRating">Rating:</label>
+                <input id="txtRating" name="txtRating" class="form-control">
+              </div>
+              <div class="col">
+                <label class="control-label" for="txtReleaseDate">Release Date:</label>
+                <input id="txtReleaseDate" name="txtReleaseDate" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="txtRuntime">Runtime:</label>
+                <input id="txtRuntime" name="txtRuntime" class="form-control">
+              </div>
+              <div class="col">
+                <label class="control-label" for="txtGenre">Genre:</label>
+                <input id="txtGenre" name="txtGenre" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="txtDirector">Director:</label>
+                <input id="txtDirector" name="txtDirector" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="txtActors">Actors:</label>
+                <input id="txtActors" name="txtActors" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="txtPlot">Plot:</label>
+                <textarea id="txtPlot" name="txtPlot" class="form-control"></textarea>
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="txtLanguage">Language:</label>
+                <input id="txtLanguage" name="txtLanguage" class="form-control">
+              </div>
+              <div class="col">
+                <label class="control-label" for="txtCountry">Country:</label>
+                <input id="txtCountry" name="txtCountry" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-form" for="txtProduction">Production:</label>
+                <input id="txtProduction" name="txtProduction" class="form-control">
+              </div>
+              <div class="col">
+                <label class="control-form" for="txtBoxOffice">Box Office:</label>
+                <input id="txtBoxOffice" name="txtBoxOffice" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-form" for="txtWebsite">Website:</label>
+                <input id="txtWebsite" name="txtWebsite" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="imgPoster">Poster:</label>
+                <img id="imgPoster" name="imgPoster" src="#" alt="Movie Poster">
+              </div>
+            </div>
+            
+          </form>
+        </div><!-- /.col-lg-12 -->
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+  </body>
+</html>

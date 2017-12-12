@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Final Exam</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous">
+
+    <script type="text/javascript">
+
+      function getBankInformation() {
+
+        var url = "http://34.229.220.156/jsonbankservice/BankAccounts/GetBankInformation";
+
+        // Cross platform xmlhttprequest
+
+        // Create xmlhttprequest object
+        var xmlhttp = null;
+        if (window.XMLHttpRequest) {
+          xmlhttp = new XMLHttpRequest();
+          //make sure that Browser supports overrideMimeType
+          if (typeof xmlhttp.overrideMimeType != 'undefined') {
+            xmlhttp.overrideMimeType('text/xml');
+          }
+        } else if (window.ActiveXObject) {
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        } else {
+          alert('Perhaps your browser does not support xmlhttprequests?');
+        }
+
+        // Create an HTTP GET request
+        xmlhttp.open('GET', url, true);
+
+        // Set the callback function
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            var myObj = JSON.parse(xmlhttp.responseText);
+
+            // Display Search Results
+            resultsForm.Owner.value = myObj.OwnerName;
+            resultsForm.AccountID.value = myObj.AccountID;
+            // resultsForm.TotalAmount.value = myObj.accounts[0].Amount + myObj.accounts[1].Amount + myObj.accounts[2].Amount;
+            var totalamount = 0;
+            var i;
+            for (i = 0; i < myObj.accounts.length; i++) {
+              totalamount += myObj.accounts[i].Amount;
+            }
+            resultsForm.TotalAmount.value = totalamount;
+
+          } else {
+            // waiting for the call to complete
+          }
+        };
+
+        // Make the actual request
+        xmlhttp.send(null);
+      };
+    </script>
+
+  </head>
+  <body style="background-color: rgb(248, 248, 248);">
+    <div class="container">
+
+      <!-- Search Area -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="bs-component">
+            <h2>Final Exam</h2>
+            <form class="well form-search" id="search-by-title-form">
+              <button id="getBankInfo-btn" type="button" class="btn btn-primary" onclick="getBankInformation()">Get Bank Information</button>&nbsp;&nbsp;
+              <button id="reset-btn" type="reset" class="btn btn-warning">Reset</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <br>
+
+      <!-- Search Results Area -->
+      <div class="row">
+        <div class="col-lg-12">
+          <form name="resultsForm">
+            <table>
+              <tr>
+                <td>Owner: </td>
+                <td>
+                  <input id="Owner">
+                </td>
+              </tr>
+              <tr>
+                <td>Account ID: </td>
+                <td>
+                  <input id="AccountID">
+                </td>
+              </tr>
+              <tr>
+                <td>Total Amount: </td>
+                <td>
+                  <input id="TotalAmount">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div><!-- /.col-lg-12 -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </body>
+</html>

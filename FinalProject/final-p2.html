@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Movie Search</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous">
+    
+    <script type="text/javascript">
+
+    function findActorInfo() {
+
+      var firstname = document.getElementById('firstname').value;
+      var lastname = document.getElementById('lastname').value;
+
+      var url = "http://www.theimdbapi.org/api/find/person?name=" + firstname + "+" + lastname;
+
+      // Cross platform xmlhttprequest
+
+      // Create xmlhttprequest object
+      var xmlhttp = null;
+      if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+        //make sure that Browser supports overrideMimeType
+        if (typeof xmlhttp.overrideMimeType != 'undefined') {
+          xmlhttp.overrideMimeType('text/xml');
+        }
+      } else if (window.ActiveXObject) {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      } else {
+        alert('Perhaps your browser does not support xmlhttprequests?');
+      }
+
+      // Create an HTTP GET request
+      xmlhttp.open('GET', url, true);
+
+      // Set the callback function
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+          var myObj = JSON.parse(xmlhttp.responseText);
+
+          // Display Search Results
+          resultsForm.txtActor.value = myObj[0].title;
+          resultsForm.txtDescription.value = myObj[0].description;
+          resultsForm.txtBirthday.value = myObj[0].birthday;
+          resultsForm.txtBirthplace.value = myObj[0].birthplace;
+          resultsForm.txtProfession.value = "";
+          for (x = 0; x < myObj[0].type.length; x++) {
+            resultsForm.txtProfession.value += myObj[0].type[x] + " ";
+          }
+          
+          resultsForm.imgImagePoster.src = myObj[0].image.poster;
+
+        } else {
+          // waiting for the call to complete
+        }
+      };
+
+      // Make the actual request
+      xmlhttp.send(null);
+    };
+    </script>
+
+  </head>
+
+  <body style="background-color: rgb(248, 248, 248);">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">SE426 Final Project</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="final.html">Part 1</a>
+          <a class="nav-item nav-link active" href="final-p2.html">Part 2
+            <span class="sr-only">(current)</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="container">
+      <br>
+      <h1>Actor Search - IMDB API<small><a href="http://theimdbapi.org/#"> theimdbapi.org/#</a></small></h1>
+      <hr>
+
+      <!-- Search Area -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="bs-component">
+            <form class="well form-search" id="search-by-title-form">
+      
+              <fieldset>
+                <legend>By Actor</legend>
+              </fieldset>
+      
+              <div>
+      
+                <label class="control-label" for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Enter actor's first name..." required> &nbsp;&nbsp;
+      
+                <label class="control-label" for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Enter actor's last name..." required> &nbsp;&nbsp;
+
+                <button id="search-by-title-button" type="button" class="btn btn-primary" onclick="findActorInfo()">Search</button>&nbsp;&nbsp;
+                <button id="search-by-title-reset" type="reset" class="btn btn-warning">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <br>
+
+      <!-- Search Results Area -->
+      <div class="row">
+        <div class="col-lg-12">
+          <form name="resultsForm">
+
+            <fieldset>
+              <legend>Search Results</legend>
+            </fieldset>
+      
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="txtActor">Name:</label>
+                <input id="txtActor" name="txtActor" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="txtDescription">Description:</label>
+                <textarea id="txtDescription" name="txtDescription" class="form-control"></textarea>
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="txtBirthday">Birthday:</label>
+                <input id="txtBirthday" name="txtBirthday" class="form-control">
+              </div>
+              <br>
+              <div class="col">
+                <label class="control-label" for="txtBirthplace">Birthplace:</label>
+                <input id="txtBirthplace" name="txtBirthplace" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="txtProfession">Profession:</label>
+                <input id="txtProfession" name="txtProfession" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col">
+                <label class="control-label" for="imgImagePoster">Image:</label>
+                <img id="imgImagePoster" src="#" alt="Head Shot">
+              </div>
+            </div>
+            <br>
+
+            <ul></ul>
+          </form>
+        </div><!-- /.col-lg-12 -->
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+  </body>
+</html>
